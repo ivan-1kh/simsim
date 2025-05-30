@@ -424,19 +424,19 @@ export default function Simsim() {
         <div className="flex flex-col gap-4 w-64">
           <InteractiveButton
             onClick={() => setGameMode("arabic-to-hebrew")}
-            className="bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 transition"
+            className="game-button"
           >
             Arabic for Hebrew Speakers
           </InteractiveButton>
           <InteractiveButton
             onClick={() => setGameMode("hebrew-to-arabic")}
-            className="bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 transition"
+            className="game-button"
           >
             Hebrew for Arabic Speakers
           </InteractiveButton>
           <InteractiveButton
             onClick={() => setGameMode("mix")}
-            className="bg-green-600 text-white p-3 rounded-lg hover:bg-green-700 transition"
+            className="game-button orange"
           >
             Mix Mode
           </InteractiveButton>
@@ -455,7 +455,7 @@ export default function Simsim() {
 
         <InteractiveButton
           onClick={resetGame}
-          className="bg-blue-600 text-white p-3 px-6 rounded-lg hover:bg-blue-700 transition"
+            className="game-button"
         >
           Play Again
         </InteractiveButton>
