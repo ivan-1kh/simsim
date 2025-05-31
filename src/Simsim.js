@@ -149,6 +149,8 @@ export default function Simsim() {
       return;
     }
 
+    setCurrentWords([]);
+
     setFeedback(null);
     setTimeLeft(5);
 
