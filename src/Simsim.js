@@ -99,7 +99,7 @@ export default function Simsim() {
 
   // Main game timer and morph progress
   useEffect(() => {
-    if (gameStarted && !feedback && selectedWord && !gameOver) {
+    if (gameStarted && !feedback && selectedWord !== null && !gameOver) {
       const interval = setInterval(() => {
         setTimeLeft(prev => {
           if (prev <= 0.1) {
@@ -114,6 +114,23 @@ export default function Simsim() {
       return () => clearInterval(interval);
     }
   }, [gameStarted, feedback, selectedWord, gameOver]);
+
+  // useEffect(() => {
+  //   if (gameStarted && !feedback && selectedWord && !gameOver) {
+  //     const interval = setInterval(() => {
+  //       setTimeLeft(prev => {
+  //         if (prev <= 0.1) {
+  //           clearInterval(interval);
+  //           handleTimeUp();
+  //           return 0;
+  //         }
+  //         return prev - 0.1;
+  //       });
+  //     }, 100);
+
+  //     return () => clearInterval(interval);
+  //   }
+  // }, [gameStarted, feedback, selectedWord, gameOver]);
 
   // Start the game
   const startGame = () => {
@@ -167,7 +184,7 @@ export default function Simsim() {
   };
 
   const handleMouseDown = (e) => {
-    if (feedback || !selectedWord || !wordRef.current || !gameContainerRef.current) return;
+    if (feedback || selectedWord === null || !wordRef.current || !gameContainerRef.current) return;
 
     setIsDragging(true);
     const wordBoundingRect = wordRef.current.getBoundingClientRect();
@@ -187,7 +204,7 @@ export default function Simsim() {
   };
 
   const handleMouseMove = (e) => {
-    if (!isDragging || feedback || !wordRef.current || !gameContainerRef.current) return;
+    if (!isDragging || selectedWord === null || feedback || !wordRef.current || !gameContainerRef.current) return;
 
     const gameRect = gameContainerRef.current.getBoundingClientRect();
 
@@ -200,7 +217,7 @@ export default function Simsim() {
 
   // Handle drop
   const handleMouseUp = () => {
-    if (!isDragging || feedback || !wordRef.current) return;
+    if (!isDragging || selectedWord === null || feedback || !wordRef.current) return;
     setIsDragging(false);
 
     // Check which corner the word was dropped in
@@ -413,7 +430,7 @@ export default function Simsim() {
 
                 {/* CHECK IF HbAr OR ArHb ******************** */}
                 <img
-                  src={"words/" + currentWords[selectedWord] + "/HbAr.gif"}
+                  src={"words/" + currentWords[selectedWord] + "/" + ( gameMode == "arabic-to-hebrew" ? "ArHb" : "HbAr") + ".gif"}
                   style={{ width: "15rem", userSelect: "none", pointerEvents: "none" }}
                   draggable={false}
                 />
