@@ -7,7 +7,7 @@ export default function Simsim() {
   const [gameStarted, setGameStarted] = useState(false);
   const [currentRound, setCurrentRound] = useState(0);
   const [score, setScore] = useState(0);
-  const [timeLeft, setTimeLeft] = useState(8); // Changed from 5 to 7
+  const [timeLeft, setTimeLeft] = useState(8);
   const [isDragging, setIsDragging] = useState(false);
   const [dragPos, setDragPos] = useState({ x: 0, y: 0 });
   const [totalRounds, setTotalRounds] = useState(20);
@@ -136,7 +136,7 @@ export default function Simsim() {
     setCurrentWords([]);
 
     setFeedback(null);
-    setTimeLeft(8); // Changed from 5 to 7
+    setTimeLeft(8);
 
     // Select 4 random words
     const numbers = Array.from({ length: 74 }, (_, i) => i + 1); // [1,2,...,10]
@@ -238,7 +238,7 @@ export default function Simsim() {
       //RIGHT ANSWER
 
       // Calculate points based on remaining time
-      const pointsEarned = Math.ceil((timeLeft / 8) * 100); // Changed from 5 to 7
+      const pointsEarned = Math.ceil((timeLeft / 8) * 100);
 
       setScore(prev => prev + pointsEarned);
 
@@ -275,7 +275,7 @@ export default function Simsim() {
     setCurrentWords([]);
     setSelectedWord(null);
     setGameOver(false);
-    setTimeLeft(7); // Changed from 5 to 7
+    setTimeLeft(8);
     setCurrentGameMusic(null);
   };
 
@@ -398,7 +398,7 @@ export default function Simsim() {
         >
           <div
             className="h-full bg-blue-600 rounded-full transition-all duration-100 ease-linear"
-            style={{ width: `${(timeLeft / 7) * 100}%` }} // Changed from 5 to 7
+            style={{ width: `${(timeLeft / 8) * 100}%` }}
           ></div>
         </div>
 
