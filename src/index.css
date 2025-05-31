@@ -92,3 +92,16 @@ code {
   top:2px;
   box-shadow: 0 4px 0 #348628, 0 6px 1px 1px rgba(0,0,0,.3), 0 8px 0 5px #2a6d20, 0 10px 0 5px #39822e, 0 13px 0 5px #1d4c16, 0 13px 1px 6px rgba(0,0,0,.3);
 }
+
+
+/* In your CSS file (e.g., globals.css) */
+.header-background {
+  /* This creates a gradient from a semi-transparent gray at the top to fully transparent */
+  background-image: linear-gradient(to bottom, rgba(128, 128, 128, 0.4), transparent);
+  /* You might want to add some padding to the top of the header as well,
+     depending on how close it is to the very top of the screen */
+  padding-top: 1rem; /* Adjust as needed */
+  position: sticky; /* Or fixed, depending on your layout needs */
+  top: 0;
+  z-index: 10; /* Ensure it stays above other content */
+}
